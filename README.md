@@ -13,7 +13,7 @@
   <li>Template String</li>
 </ul>
 
-<h2>Rodar</h2>
+<h2>Rodar o projeto</h2>
 Para rodar o projeto<br>
 - Baixe o projeto
 - Acessa a raiz do projeto
