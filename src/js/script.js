@@ -1,6 +1,6 @@
 let pokemonsData;
 const qtdPokemons = 150;
-const author = "Everson"
+const author = "Everson Silva / EverSilva"
 
 // Prrenche o elemento Pokedex com os pokemons da fetch
 const fillPokedex = pokemons => {
