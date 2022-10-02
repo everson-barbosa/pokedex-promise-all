@@ -81,16 +81,14 @@ const threeDigits = number => {
 }
 
 // Retorna os status do Pokemon em um objeto
-const getStats = pokemon => {
-    return {
+const getStats = pokemon => ({
     hp: pokemon.stats[0].base_stat,
     attack: pokemon.stats[1].base_stat,
     defense: pokemon.stats[2].base_stat,
     special_attack: pokemon.stats[3].base_stat,
     speacial_defense: pokemon.stats[4].base_stat,
     speed: pokemon.stats[5].base_stat
-    }
-}
+    })
 
 // Retorna os elementos com as classes de acordo com tipo do pokemon
 const getTypesEls = pokemon => {
