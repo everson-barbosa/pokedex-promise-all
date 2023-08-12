@@ -1,225 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+:root {
+  --black: #262632;
+  --white: #f6f6ff;
+  --primary: #ffff44;
+}
+
 * {
-    padding: 0; 
-    margin: 0; 
-    box-sizing: border-box; 
-    font-family: Poppins;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
 }
+
 body {
-    background-attachment: fixed;
-    overflow-y: scroll;
-}
-[data-js='title'] {
-    text-align: center;
-}
-[data-js='author'] {
-    text-align: center;
-    display: block;
-    font-size: 16px;
+  background-attachment: fixed;
+  overflow-y: scroll;
 }
 
-[data-js='pokedex'] {
-    margin: 40px; 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-[data-js='pokedex'] .pokemon-card {
-    position: relative;
-    perspective: 1000px;
-    width: 170px;
-    margin: 10px;
-    border-radius: 10px;
-}
-[data-js='pokedex'] .pokemon-card .inner-card .front, 
-[data-js='pokedex'] .pokemon-card .inner-card .back {
-    width: 100%;
-    height: 100%;
-}
-[data-js='pokedex'] .pokemon-card .inner-card {
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-[data-js='pokedex'] .pokemon-card:hover .inner-card {
-    transform: rotateY(180deg);
-}
-[data-js='pokedex'] .pokemon-card .front {
-    padding: 6px;
-}
-[data-js='pokedex'] .pokemon-card .front,
-[data-js='pokedex'] .pokemon-card .back {
-    border: solid 2px #333;
-    border-radius: 5px;
-}
-[data-js='pokedex'] .pokemon-card.grass .front,
-[data-js='pokedex'] .pokemon-card.grass .back {
-    background-color: #78C850;
-}
-[data-js='pokedex'] .pokemon-card.fire .front,
-[data-js='pokedex'] .pokemon-card.fire .back {
-    background-color: #F08030;
-}
-[data-js='pokedex'] .pokemon-card.water .front,
-[data-js='pokedex'] .pokemon-card.water .back {
-    background-color: #5499C7;
-}
-[data-js='pokedex'] .pokemon-card.bug .front,
-[data-js='pokedex'] .pokemon-card.bug .back {
-    background-color: #A8B820
-}
-[data-js='pokedex'] .pokemon-card.normal .front,
-[data-js='pokedex'] .pokemon-card.normal .back {
-    background-color: #A8A878
-}
-[data-js='pokedex'] .pokemon-card.dark .front,
-[data-js='pokedex'] .pokemon-card.dark .back {
-    background-color: #5D6D7E
-}
-[data-js='pokedex'] .pokemon-card.dragon .front,
-[data-js='pokedex'] .pokemon-card.dragon .back {
-    background-color: #8048FF
-}
-[data-js='pokedex'] .pokemon-card.electric .front,
-[data-js='pokedex'] .pokemon-card.electric .back {
-    background-color: #F8D030
-}
-[data-js='pokedex'] .pokemon-card.fairy .front,
-[data-js='pokedex'] .pokemon-card.fairy .back {
-    background-color: #FF7994
-}
-[data-js='pokedex'] .pokemon-card.fighting .front,
-[data-js='pokedex'] .pokemon-card.fighting .back {
-    background-color: #E59866
-}
-[data-js='pokedex'] .pokemon-card.flying .front,
-[data-js='pokedex'] .pokemon-card.flying .back {
-    background-color: #A890F0
-}
-[data-js='pokedex'] .pokemon-card.ghost .front,
-[data-js='pokedex'] .pokemon-card.ghost .back {
-    background-color: #705898
-}
-[data-js='pokedex'] .pokemon-card.ground .front,
-[data-js='pokedex'] .pokemon-card.ground .back {
-    background-color: #E0C068
-}
-[data-js='pokedex'] .pokemon-card.ice .front,
-[data-js='pokedex'] .pokemon-card.ice .back {
-    background-color: #98D8D8
-}
-[data-js='pokedex'] .pokemon-card.poison .front,
-[data-js='pokedex'] .pokemon-card.poison .back {
-    background-color: #AF7AC5
-}
-[data-js='pokedex'] .pokemon-card.psychic .front,
-[data-js='pokedex'] .pokemon-card.psychic .back {
-    background-color: #F85878
-}
-[data-js='pokedex'] .pokemon-card.rock .front,
-[data-js='pokedex'] .pokemon-card.rock .back {
-    background-color: #B8A038
-}
-[data-js='pokedex'] .pokemon-card.steel .front,
-[data-js='pokedex'] .pokemon-card.steel .back {
-    background-color: #B8B8D0
+body:before {
+  left: 0;
+  background-color: var(--black);
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.2) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to top, rgba(0, 0, 0, 0.2) 1px, transparent 1px);
 }
 
+body:after {
+  background-color: var(--white);
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.2) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to top, rgba(0, 0, 0, 0.2) 1px, transparent 1px);
+  right: 0;
+}
 
+body:before,
+body:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 50%;
+  background-size: 40px 40px;
+  background-attachment: fixed;
+  z-index: -1;
+  animation: animateBackground infinite linear 90s;
+}
 
-[data-js='pokedex'] .pokemon-card .front .art {
-    width: 110px;
-    height: 110px;
-    background-color: rgba(255, 255, 255, .6);
-    border-radius: 50%;
-    margin: 30px auto 10px;
+main {
+  display: grid;
+  place-items: center;
 }
-[data-js='pokedex'] .pokemon-card .front .art img {
-    width: 120px;
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 20px auto 2px;
-    position: relative;
+
+h1 {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+  color: var(--primary);
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
 }
-[data-js='pokedex'] .pokemon-card .front .name {
-    display: block;
-    font-size: 18px;
-    color: #ffffff;
-    text-shadow: 1px 1px 1px #333, -1px 1px 1px #333, 1px -1px 1px #333, -1px -1px 1px #333,
-    -2px -2px 1px #333, 2px 2px 1px #333, -2px 2px 1px #333, 2px -2px 1px #333;
-    text-align: center;
+
+[data-js="team"] {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+  margin: 1rem 0;
 }
-[data-js='pokedex'] .pokemon-card .front .number,
-[data-js='pokedex'] .pokemon-card .back .number {
-    display: block;
-    height: 30px;
-    width: 30px;
-    line-height: 30px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, .6);
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 12px;
-    color: #ffffff;
-    text-shadow: 1px 1px 1px #333, -1px 1px 1px #333, 1px -1px 1px #333, -1px -1px 1px #333,
-    -2px -2px 1px #333, 2px 2px 1px #333, -2px 2px 1px #333, 2px -2px 1px #333;
-    text-align: center;
+
+[data-js="team"] .card {
+  display: grid;
+  place-items: center;
 }
-[data-js='pokedex'] .pokemon-card .front .types {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 3px 2px;
-    font-size: 15px;
+
+[data-js="team"] .sprite {
+  filter: drop-shadow(15px 5px 0 rgba(0, 0, 0, 0.4));
 }
-[data-js='pokedex'] .pokemon-card .front .types .type {
-    display: block;
-    border-radius: 10px;
-    padding: 1px 4px;
-    font-size: 12px;
-    font-weight: bold;
-    background-color: rgba(255, 255, 255, .7);
-    margin: 0 4px;
-}
-[data-js='pokedex'] .pokemon-card .back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: rotateY(180deg);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-[data-js='pokedex'] .pokemon-card .back .mini-sprite {
-    height: 30px;
-    margin: 10px 10px;
-    transform: rotateY(180deg);
-}
-[data-js='pokedex'] .pokemon-card .back .stats {
-    display: flex;
-    flex-direction: column;
-}
-[data-js='pokedex'] .pokemon-card .back .stats .stat {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    margin: 2px 12px;
-    background-color: rgba(255, 255, 255, .6);
-    border-radius: 10px;
-    font-size: 12px;
-}
-[data-js='pokedex'] .pokemon-card .back .stats .stat .name {
-    padding-left: 10px; 
-}
-[data-js='pokedex'] .pokemon-card .back .stats .stat .value {
-    position: absolute;
-    right: 10px;
-}
-[data-js='pokedex'] .pokemon-card .back .created {
-    font-size: 9px;
-    text-align: center;
-    margin: 5px;
-    color: rgba(0,0,0,.7);
+
+@keyframes animateBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1200px 1200px;
+  }
 }
